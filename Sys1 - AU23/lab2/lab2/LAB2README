@@ -1,0 +1,25 @@
+BY SUBMITTING THIS FILE TO CARMEN, I CERTIFY THAT I HAVE PERFORMED ALL OF THE WORK TO CREATE
+THIS FILE AND/OR DETERMINE THE ANSWERS FOUND WITHIN THIS FILE MYSELF WITH NO ASSISTANCE
+FROM ANY PERSON (OTHER THAN THE INSTRUCTOR OR GRADERS OF THIS COURSE) AND I HAVE STRICTLY
+ADHERED TO THE TENURES OF THE OHIO STATE UNIVERSITY’S ACADEMIC INTEGRITY POLICY.
+	
+	THIS IS THE README FILE FOR LAB 2.
+	
+time took about 4.5 hours to finish lab
+i got stuck on the #ifdef PTOMPT and #endif instructions were unclear
+
+4. Run gdb on your bit_encode2 executable. Enter data here that describes
+the interim values you calculated as you created your 8-bit key as you
+read in each separate digit of the 4 digit key.
+:
+for debugging bit_encode2 i chose 01110111 as my 8 bit key and the values for Key were 0,2,6,14,28,58,118
+i tried it again with 1111 1111 results were 0,2,6,14,30,62,126,254
+and again with 00010001 value of Key was 0,2,4,8,16
+i did choose different texts for each run
+
+So i did debug it again but with the same text which is 0000
+first run for Keypattern was 00010001 so key was 0,0,0,2,4,8,16 so it somehow made me understand what was going on with the key value doubling every run and adding a 2 if there is a one in the keypattern then doubling it in the next iteration 
+
+6.. Your opinion of the Makefile tool.
+the makefile is a nice tool than can make processes run quicker like cleaning
+or zipping unzipping plus making sure a certain file exists within the folder to avoid errors

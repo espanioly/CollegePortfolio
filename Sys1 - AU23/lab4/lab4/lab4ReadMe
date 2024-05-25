@@ -1,0 +1,63 @@
+BY SUBMITTING THIS FILE TO CARMEN, I CERTIFY THAT I HAVE PERFORMED ALL OF THE WORK TO CREATE THIS FILE AND/OR DETERMINE THE ANSWERS FOUND WITHIN THIS FILE MYSELF WITH NO ASSISTANCE FROM ANY PERSON (OTHER THAN THE INSTRUCTOR OR GRADERS OF THIS COURSE) AND I HAVE STRICTLY ADHERED TO THE TENURES OF THE OHIO STATE UNIVERSITY’S ACADEMIC INTEGRITY POLICY.
+THIS IS THE README FILE FOR LAB 4.
+
+	Name: Sam Espanioly
+
+        ◦ Total amount of time (effort) it took for you to complete the lab: 
+        - about 25 hours because I restarted it - second time it took 11 hours
+        ◦ Short description of any concerns, interesting problems or discoveries encountered, or comments in general about the contents of the lab: 
+        -this was a big journey i was not expecting to restart the lab since the first output file had so many bugs because I did so much without compiling it slowly but it was easier to restart. I enjoyed creating this lab because it taught me more about pointers,nodes,floats, and different styles and how they work. It was hell to debug but overall it was interesting journey.
+        
+        ◦ Describe how you used gdb to find a bug in your program while debugging it: 
+        -I actually couldn't figure out how to debug using gdb so instead I was using the terminal and it's output to make sure I am getting the right output otherwise i had to review the code hundreds of times and still going.
+        
+        Include how you set breakpoints, variables you printed out, what values they had, what you found that enabled you to fix the bug.  
+        If you didn’t have to use gdb to find any bugs, 
+        	- I did print out all the variables for the first node to make sure I was collecting the data into the list correctly and then i went big by collecting the whole list then printed it all out and did the same for all the other functions until I started outputting to the output file.
+       
+        	print out the value of each address you received from a malloc()/calloc() call, 
+        	then use a breakpoint for the free() system call to verify that each addressed is passed to free at the end of the program.
+        			-Well freeing some of those memories was actually causing me issues but i did free the allocated memory at the end.
+        	
+        	
+chatGPT usage:
+	INPUT: You will write a program to access, process and store data in order to calculate grades for a class.
+				The program will execute in the following format:
+
+				lab4 filename1 filename2
+
+				where lab4 is the name of the executable
+					filename1 is the data file that contains the current class records to read in from disk
+					filename2 is a data file that your program will create with the updated class records
+	OUTPUT: 
+	int main(int argc, char* argv[]) {
+    // Check if the correct number of command line arguments is provided
+    if (argc != 3) {
+        fprintf(stderr, "Usage: %s filename1 filename2\n", argv[0]);
+        return 1;
+    }
+
+    // Open the input file for reading
+    FILE* inputFile = fopen(argv[1], "r");
+    if (inputFile == NULL) {
+        fprintf(stderr, "Error: Unable to open input file %s\n", argv[1]);
+        return 1;
+    }
+
+    // Open the output file for writing
+    FILE* outputFile = fopen(argv[2], "w");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error: Unable to open output file %s\n", argv[2]);
+        fclose(inputFile);
+        return 1;
+    }
+
+    // Process the records and calculate grades
+    processRecords(inputFile, outputFile);
+
+    // Close the files
+    fclose(inputFile);
+    fclose(outputFile);
+
+    return 0;
+}
